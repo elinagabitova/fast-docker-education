@@ -1,22 +1,22 @@
 # Fast-Docker
-This repo aims to cover Docker details (Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack) quickly, and possible example usage scenarios (HowTo: LABs) in a nutshell. Possible usage scenarios are aimed to update over time.
+Этот репозиторий - перевод [Fast-docker](https://github.com/omerbsezer/Fast-Docker#motivation) на русский язык с комментариями и дополнениями. Он поможет начинающим DevOps/DevSecOps/IT-специалистам в понимании docker: Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack. Так же в нем есть лабораторные, описывающие возможные сценарии использования docker для быстрого освоения материала.
 
-**Keywords:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
+**Теги:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
 
-# Quick Look (HowTo: LABs)
-- [LAB-01: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB01-FirstImageFirstContainer.md)
-- [LAB-02: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md)
-    - [LAB-02.1: Binding Mount to the Container](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md#app_mount)
-- [LAB-03: Docker-Compose File - Creating 2 Different Containers:  WordPress Container depends on MySql Container](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB03-DockerCompose.md)
-- [LAB-04: Creating Docker Swarm Cluster With 5 PCs using PlayWithDocker : 3 x WordPress Containers and 1 x MySql Container using Docker-Compose File](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB04-DockerStackService.md)
-- [LAB-05: Running Docker Free Local Registry, Tagging Image, Pushing Image to the Local Registry, Pulling Image From Local Registry and Deleting Images from Local Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB05-DockerLocalRegistry.md)
-- [LAB-06: Transferring Content between Host PC and Docker Container](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB06-DockerTransferringContent.md)
-- [LAB-07: Creating Docker Container using Dockerfile to Build C++ on Ubuntu18.04](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB07-DockerfileForLinuxC++Build.md)
-- [LAB-08: Creating Docker Container using Dockerfile to Build C++ on Windows](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB08-DockerfileForWindowsC++Build.md)
-- [LAB-09: Docker Configuration (Proxy, Registry)](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB09-DockerConfiguration.md)
-- [Docker Commands Cheatsheet](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
+# Лабораторные:
+- [LAB-01: Создание первого docker-образа и контейнера с помощью DockerFile](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB01-FirstImageFirstContainer.md)
+- [LAB-02: Привязка томов (Volumes) к различным контейнерам](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md)
+    - [LAB-02.1: Привязка каталогов к контейнеру](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md#app_mount)
+- [LAB-03: Docker-Compose - создание 2 разных контейнеров: контейнер WordPress в связке с контейнером MySql](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB03-DockerCompose.md)
+- [LAB-04: Создание кластера Docker Swarm With на 5 nodes, используя PlayWithDocker : 3 x WordPress контейнера and 1 x MySql контенйер с помощью Docker-Compose файла](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB04-DockerStackService.md)
+- [LAB-05: Запуск Docker Free в локальном Registry, изменение тега образа, отправка образов в локальный Registry, извлечение образов из локального Registry and удаление образов из локального Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB05-DockerLocalRegistry.md)
+- [LAB-06: Перенос файлов между хост-компьютером и Docker-контейнером](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB06-DockerTransferringContent.md)
+- [LAB-07: Создание Docker-контейнера с использованием Dockerfile для сборки C++ в Ubuntu 18.04](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB07-DockerfileForLinuxC++Build.md)
+- [LAB-08: Создание Docker-контейнера с использованием Dockerfile для сборки C++ в Windows](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB08-DockerfileForWindowsC++Build.md)
+- [LAB-09: Конфигурация Docker (Proxy, Registry)](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB09-DockerConfiguration.md)
+- [Часто используемые команды Docker (cheetsheet)](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
-# Table of Contents
+# Содержание
 - [Motivation](#motivation)
     - [Needs](#needs)
     - [Benefits](#benefits)
