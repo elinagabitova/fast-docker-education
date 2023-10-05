@@ -1,4 +1,4 @@
-# Fast-Docker
+# Fast-Docker в переводе на русский язык
 Этот репозиторий - перевод [Fast-docker](https://github.com/omerbsezer/Fast-Docker#motivation) на русский язык с комментариями и дополнениями. Он поможет начинающим DevOps/DevSecOps/IT-специалистам в понимании docker: Dockerfile, Image, Container, Commands, Volumes, Docker-Compose, Networks, Swarm, Stack. Так же в нем есть лабораторные, описывающие возможные сценарии использования docker для быстрого освоения материала.
 
 **Теги:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
@@ -17,74 +17,71 @@
 - [Часто используемые команды Docker (cheetsheet)](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerCommandCheatSheet.md)
 
 # Содержание
-- [Motivation](#motivation)
-    - [Needs](#needs)
-    - [Benefits](#benefits)
-    - [Problems Docker does not solve](#problems)
-- [What is Docker?](#whatisdocker)
-    - [Architecture](#architecture)
-    - [Installation](#installation)
-    - [Docker Engine (Deamon, REST API, CLI)](#engine)
-    - [Docker Registry and Docker Hub](#registry)
-    - [Docker Command Structure](#command)
-    - [Docker Container](#container)
-    - [Docker Volumes/Bind Mounts](#volume)
-    - [Docker Network](#network)
-    - [Docker Log](#log)
-    - [Docker Stats/Memory-CPU Limitations](#stats)
+- [Мотивация](#мотивация)
+    - [Потребность в Docker](#потребность)
+    - [Преимущества](#преимущества)
+    - [Проблемы, которые Docker не решает](#проблемы)
+- [Что такое Docker?](#whatisdocker)
+    - [Архитектура](#architecture)
+    - [Установка](#installation)
+    - [Движок Docker (Deamon, REST API, CLI)](#engine)
+    - [Docker Registry и Docker Hub](#registry)
+    - [Структура комманд Docker](#command)
+    - [Docker контейнер](#container)
+    - [Docker тома/Привязка Mounts](#volume)
+    - [Сеть в Docker](#network)
+    - [Логирование в Docker](#log)
+    - [Статистика Docker/Лимит на CPU/память](#stats)
     - [Docker Environment Variables](#variables)
     - [Docker File](#file)
-    - [Docker Image](#image)
+    - [Docker Образ](#image)
     - [Docker Compose](#compose)
     - [Docker Swarm](#swarm)
     - [Docker Stack / Docker Service](#stack)
 - [Play With Docker](#playwithdocker)
-- [Docker Commands Cheatsheet](#cheatsheet)
-- [Other Useful Resources Related Docker ](#resource)
+- [Часто используемые команды Docker](#cheatsheet)
+- [Другие ползеные ресурсы про Docker ](#resource)
 - [References](#references)
 
-## Motivation <a name="motivation"></a>
-Why should we use Docker? "Docker changed the way applications used to build and ship. It has completely revolutionized the containerization world." (Ref:ItNext)
+## Мотивация <a name="мотивация"></a>
+Почему нам следует использовать Docker? «Docker изменил способ создания и доставки приложений. Он произвел полную революцию в мире контейнеризации."
 
-### Needs <a name="needs"></a>
-- Installing all dependencies, setting up a new environment for SW (time-consuming every time to install environment for testing ) 
-- We want to run our apps on different platforms (Ubuntu, Windows, Raspberry Pi).
-    - Question in our mind: What if, it does not run on a different OS?
-- CI/CD Integration Testing: We can handle unit testing, component testing with Jenkins. What if integration testing? 
-    - Extending Chain: Jenkins- Docker Image - Docker Container - Automatic testing
-- Are our SW products portable to carry on different PC easily? (especially in the development & testing phase)
-- Developing, testing, maintenance of code as one Monolithic App could be problematic when the app needs more features/services. It is required to convert one big monolithic app into microservices. 
+### Потребность в Docker <a name="потребность"></a>
+- Установка всех зависимостей, подготовка нового окружения для ПО (каждый раз установка среды для тестирования требует много времени) 
+- Потребность в запуске приложений на разных платформах (Ubuntu, Windows, Raspberry Pi).
+    - Вопрос: Что если, он не запуститься на другой ОС?
+- Интеграционное тестирование CI/CD: Мы можем провести модульное тестирование и тестирование компонентов с помощью Jenkins. What если тестирование интеграционное? 
+    - Расширение цепочки: Jenkins- Docker образ - Docker контейнер - Автоматическое тестирование
+- Легко ли переносить наши программные продукты на разные ПК? (особенно на этапе разработки и тестирования)
+- Разработка, тестирование и поддержка кода как одного монолитного приложения может оказаться проблематичным, если приложению требуется больше функций/сервисов. Требуется преобразовать одно большое монолитное приложение в микросервисы.
 
-### Benefits <a name="benefits"></a>
+### Преимущества <a name="преимущества"></a>
 
-- NOT needed to install dependencies/SWs again & again
-- Enables to run on different OS, different platforms
-- Enables a consistent environment
-- Enables more efficient use of system resources
-- Easy to use and maintain
-- Efficient use of the system resources
-- Isolate SW components
-- Enables faster software delivery cycles
-- Containers give us instant application portability.
-- Enables developers to easily pack, ship, and run any application as a lightweight, portable, self-sufficient container
-- Microservice Architecture (Monolithic Apps to MicroService Architecture, e.g. [Cloud Native App](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/introduction))
+- Не нуждается в установке зависимостей
+- Готов к запуску на разных ОС, разных платформах
+- Обеспечивает согласованную среду
+- Обеспечивает более эффективное использование системных ресурсов
+- Простота в использовании и обслуживании
+- Эффективное использование системных ресурсов
+- Изоляция компонентов ПО
+- Обеспечивает более быстрые циклы доставки программного обеспечения
+- Контейнеры обеспечивают мнгновенную возможность переноса приложений.
+- Позволяет разработчикам легко упаковывать, отправлять и запускать любое приложение в виде легкого, портативного и независимого контейнера.
+- Микросервисная архитектура (Монолитные приложения в Микросервисную архитектуру, например [Cloud Native App](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/introduction))
 
-(Ref: Infoworld)
+### Проблемы, которые Docker не решает <a name="проблемы"></a>
+- Docker НЕ решает ваши проблемы с безопасностью
+- Docker НЕ превращает приложения волшебным образом в микросервисы.
+- Docker не заменяет виртуальные машины
 
-### Problems Docker does not solve<a name="problems"></a>
-- Docker does NOT fix your security issues
-- Docker does NOT turn applications magically into microservices
-- Docker isn’t a substitute for virtual machines
 
-(Ref: Infoworld)
-
-## What is Docker?  <a name="whatisdocker"></a>
-- Docker is a tool that reduces the gap between the Development/Deployment phase of a software development cycle.
-- Docker is like a VM but it has more features than VMs (no kernel, only small app and file systems, portable)
-    - On Linux Kernel (2000s) two features are added (these features support Docker):
-        - Namespaces: Isolate process.
-        - Control Groups: Resource usage (CPU, Memory) isolation and limitation for each process. 
-- Without Docker, each VM consumes 30% of resources (Memory, CPU)
+## Что такое Docker?  <a name="whatisdocker"></a>
+- Docker — это инструмент, который сокращает разрыв между этапами разработки и развертывания в цикле разработки программного обеспечения.
+- Docker похож на виртуальную машину, но у него больше функций, чем у виртуальных машин (без ядра, только небольшие приложения и файловые системы)
+    - В ядре Linux (2000s) добавлены следующие 2 функции:
+        - Пространства имен (Namespaces): изоляция процессов.
+        - Контрольные группы: изоляция и ограничение использования ресурсов (ЦП, память) для каждого процесса. 
+- Без Docker каждая ВМ потребляет 30% ресурсов (Память, ЦП)
 
 ![image](https://user-images.githubusercontent.com/10358317/113183089-ef51fa00-9253-11eb-9ade-771905ce8ebd.png) (Ref: Docker.com)
 
