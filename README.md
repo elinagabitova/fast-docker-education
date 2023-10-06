@@ -83,13 +83,23 @@
         - Контрольные группы: изоляция и ограничение использования ресурсов (ЦП, память) для каждого процесса. 
 - Без Docker каждая ВМ потребляет 30% ресурсов (Память, ЦП)
 
-![image](https://user-images.githubusercontent.com/10358317/113183089-ef51fa00-9253-11eb-9ade-771905ce8ebd.png) (Ref: Docker.com)
+![image](https://github.com/elinagabitova/fast-docker-education/assets/25728116/428692ef-62ab-4973-b9c3-a19877e0949f)
+(Ref: https://eternalhost.net/blog/razrabotka/docker-kubernetes)
 
-### Architecture  <a name="architecture"></a>
+
+### Архитектура Docker  <a name="architecture"></a>
 
 ![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png) (Ref: docs.docker.com)
 
-
+```
+- Клиент (Client) - консольный клиент, при помощи которого пользователи взаимодействуют с Docker daemon и отправляют ему команды
+- Docker host (хост) - операционная система, на который устанавливают Docker
+    - Docker Daemon - служба, которая управляет Docker-объектами
+        - Docker container (контейнер) - развернутое и запущенное приложение
+        - Docker image (образ) - неизменяемый образ, из которого разворачивается контейнер     
+- Docker Registry - репозиторий, в котором хранятся образы
+```
+  
 ### Installation  <a name="installation"></a>
 
 - Linux: Docker Engine
@@ -107,7 +117,8 @@
     - Rest API instructs docker daemon what to do.
     - Command Line Interface (CLI) is the client used to enter docker commands.
 
-![image](https://user-images.githubusercontent.com/10358317/113183406-45bf3880-9254-11eb-8d13-e68c83f3d349.png) (Ref: Docker.com)
+![image](https://github.com/elinagabitova/fast-docker-education/assets/25728116/428692ef-62ab-4973-b9c3-a19877e0949f)
+(Ref: https://eternalhost.net/blog/razrabotka/docker-kubernetes)
 
 ### Docker Registry and Docker Hub  <a name="registry"></a>
 
