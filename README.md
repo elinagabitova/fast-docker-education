@@ -44,7 +44,7 @@
 - [References](#references)
 
 ## Мотивация <a name="мотивация"></a>
-Почему нам следует использовать Docker? «Docker изменил способ создания и доставки приложений. Он произвел полную революцию в мире контейнеризации."
+Почему нам следует использовать Docker? "Docker изменил способ создания и доставки приложений. Он произвел полную революцию в мире контейнеризации."
 
 ### Потребность в Docker <a name="потребность"></a>
 - Установка всех зависимостей, подготовка нового окружения для ПО (каждый раз установка среды для тестирования требует много времени) 
@@ -91,44 +91,48 @@
 
 ![image](https://user-images.githubusercontent.com/10358317/113183210-0db7f580-9254-11eb-9716-0de635f3cbdf.png) (Ref: docs.docker.com)
 
-```
 - Клиент (Client) - консольный клиент, при помощи которого пользователи взаимодействуют с Docker daemon и отправляют ему команды
 - Docker host (хост) - операционная система, на который устанавливают Docker
-    - Docker Daemon - служба, которая управляет Docker-объектами
+    - Docker Daemon - служба, которая ожидает запросы к API Docker и управляет Docker-объектами
         - Docker container (контейнер) - развернутое и запущенное приложение
         - Docker image (образ) - неизменяемый образ, из которого разворачивается контейнер     
 - Docker Registry - репозиторий, в котором хранятся образы
-```
-  
-### Installation  <a name="installation"></a>
+
+### Установка  <a name="installation"></a>
 
 - Linux: Docker Engine
     - https://docs.docker.com/engine/install/ubuntu/
 - Windows: Docker Desktop for Windows 
-    - WSL: Windows Subsystem for Linux, 
-    - WSL2: virtualization through a highly optimized subset of Hyper-V to run the kernel and distributions, better than WLS.
+    - WSL: Windows подсистема для Linux, 
+    - WSL2: виртуализация с помощью высокооптимизированного подмножества Hyper-V
         - https://docs.docker.com/docker-for-windows/install/
-- Mac-OS: Docker Desktop for Mac
+- Mac-OS: Docker Desktop для Mac
     - https://docs.docker.com/docker-for-mac/install/
 
 ### Docker Engine (Deamon, REST API, CLI)  <a name="engine"></a>
-- There are mainly 3 components in the Docker Engine:
-    - Server is the docker daemon named docker daemon. Creates and manages docker images, containers, networks, etc.
-    - Rest API instructs docker daemon what to do.
-    - Command Line Interface (CLI) is the client used to enter docker commands.
 
-![image](https://github.com/elinagabitova/fast-docker-education/assets/25728116/428692ef-62ab-4973-b9c3-a19877e0949f)
+Docker Engine - клиент-серверное приложение. Есть 3 главных компонента в Docker Engine:
+    - Сервер выполняет инициализацию демона (фоновой программы), который применяется для управления и модификации контейнеров, образов и томов
+    - REST API — механизм, отвечающий за организацию взаимодействия Docker-клиента и Docker deamon.
+    - Command Line Interface (CLI, Docker Client) позволяет пользователю взаимодействовать с сервером при помощи команд, набираемых в интерфейсе.
+
+
+![image](https://github.com/elinagabitova/fast-docker-education/assets/25728116/2188f6a3-69fa-438f-a102-665210c1760a)
+
 (Ref: https://eternalhost.net/blog/razrabotka/docker-kubernetes)
 
-### Docker Registry and Docker Hub  <a name="registry"></a>
+### Docker Registry и Docker Hub  <a name="registry"></a>
 
 - https://hub.docker.com/
+Docker Registry (реестр) - способ хранения и распространения образов Docker. 
+
+Docker Hub — это общедоступный Docker registry, то есть хранилище всех доступных Docker-образов. При необходимости можно разворачивать свои приватные Docker registry, размещать собственные реестры Docker и использовать их для извлечения образов.
 
 ![image](https://user-images.githubusercontent.com/10358317/113183434-4eb00a00-9254-11eb-9275-9b1ccf705d5b.png) 
 
 [App: Running Docker Free Local Registry, Tagging Container, Pushing to Local Registry, Pulling From Local Registry and Deleting Images from Local Registry](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerLocalRegistry.md)
 
-### Docker Command Structure  <a name="command"></a>
+### Структура команд Docker  <a name="command"></a>
 
 - docker [ManagementCommand] [Command] 
 
@@ -144,15 +148,15 @@ docker container rm -f [containerName or containerID]
 
 ![image](https://user-images.githubusercontent.com/10358317/113183721-9fbffe00-9254-11eb-9841-79bf037db34a.png)
 
-### Docker Container  <a name="container"></a>
+### Docker контейнер  <a name="container"></a>
 
 ![image](https://user-images.githubusercontent.com/10358317/113183556-730be680-9254-11eb-8bdd-84c5cf5b86c6.png) (Ref: docker-handbook-borosan)
 
-- When we create the container from the image, in every container, there is an application that is set to run by default app. 
-    - When this app runs, the container runs.
-    - When this default app finishes/stops, the container stops. 
-- There could be more than one app in docker image (such as: sh, ls, basic commands)
-- When the Docker container is started, it is allowed that a single application is configured to run automatically.
+- Когда мы создаем контейнер из образа, в каждом контейнере есть приложение, которое настроено на запуск по умолчанию. 
+    - Когда это приложение запускается, контейнер запускается.
+    - Когда это приложение по умолчанию завершает работу/останавливается, контейнер останавливается. 
+- В образе Docker может быть несколько приложений (например: sh, ls, базовые команды)
+- При запуске контейнера Docker допускается настройка автоматического запуска одного приложения.
 
 ```
 docker container run --name mywebserver -d -p 80:80 -v test:/usr/share/nginx/html nginx
@@ -168,7 +172,7 @@ docker load -i .\hello.tar
 
 Goto: [App: Creating First Docker Image and Container using Docker File](https://github.com/omerbsezer/Fast-Docker/blob/main/FirstImageFirstContainer.md)
 
-#### Docker Container: Life Cycle
+#### Жизненный цикл Docker контейнера
 
 ![image](https://user-images.githubusercontent.com/10358317/113186436-f67b0700-9257-11eb-9b2e-41ccf056e88b.png) (Ref: life-cycle-medium)
 
