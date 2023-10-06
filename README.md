@@ -4,7 +4,7 @@
 **Теги:** Docker-Image, Dockerfile, Containerization, Docker-Compose, Docker-Volume, Docker-Network, Docker-Swarm, Service, Cheatsheet.
 
 # Лабораторные:
-- [LAB-01: Создание первого docker-образа и контейнера с помощью DockerFile](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB01-FirstImageFirstContainer.md)
+- [LAB-01: Создание первого docker-образа и контейнера с помощью DockerFile](https://github.com/elinagabitova/fast-docker-education/blob/main/LAB01-FirstImageFirstContainer.md)
 - [LAB-02: Привязка томов (Volumes) к различным контейнерам](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md)
     - [LAB-02.1: Привязка каталогов к контейнеру](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB02-DockerVolume.md#app_mount)
 - [LAB-03: Docker-Compose - создание 2 разных контейнеров: контейнер WordPress в связке с контейнером MySql](https://github.com/omerbsezer/Fast-Docker/blob/main/LAB03-DockerCompose.md)
