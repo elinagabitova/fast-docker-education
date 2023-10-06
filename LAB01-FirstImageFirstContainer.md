@@ -1,11 +1,11 @@
-## LAB-01: First Image and First Container
+## LAB-01: Первый обрзаи первый контейнер
 
-This scenario shows how to build an image from Dockerfile, how to run a docker container from this image.
+Этот сценарий лабораторной работы покажет, как создать образ из Dockerfile, а также как запустить docker контейнер для этого образа.
 
-### Steps
+### Поехали!
 
-- Create a directory (“example”) on your Desktop.
-- Create a file (“index.py”) in the “example” directory (copy from below) (this is a simple Flask that returns “Hello World” on the browser).
+- Создайте директорию (“example”) на своем ПК.
+- Создайте файл (“index.py”) в директории “example” как в коде под этим шагом (Flask-приложение, который выведет "Hello World!" в браузере).
 
 ```
 from flask import Flask
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("5000"), debug=True)
 ```
 
-- Create “Dockerfile” (there is no extension) in the “example” directory (Copy from below) (it copies to /app directory in the container, run requirements.txt, expose 5000 port and run python app).
+- Создайте “Dockerfile” (файл без расширения) в директории “example” как в коде под этим шагом (он копирует в /app директорию в контейнере, запускает requirements.txt, открывает 5000 порт и запускает index.py).
 
 ```
 FROM python:alpine3.7
@@ -28,19 +28,19 @@ EXPOSE 5000
 CMD python ./index.py
 ```
 
-- Create “requirements.txt” and copy it below (it only includes “flask”).
+- Создайте файл “requirements.txt” и скопируйте внутрь него строчку под этим шагом (в нем только “flask”).
 
 ```
 flask
 ```
 
-- Now, we have 3 files in the “example” directory.
+- В данный момент у нас есть 3 файла в директории “example”.
 
  ![image](https://user-images.githubusercontent.com/10358317/113274100-99299900-92dd-11eb-9431-a1839dd0b280.png)
 
 
 
-- Run on the terminal which is open in “example” directory, “docker build --tag my-python-app .” (creating an image from Docker file and the image name is “my-python-app”, it runs in order, first download python image which is run on Alpine, finally it is prepared to run “CMD python ./index.py” while running container).
+- Запустите в консоли заранее зайдя в ней в директорию “example” “docker build --tag my-python-app .” ( Создает образ из Dockerfile и дает образу имя “my-python-app”. Все работает оп порядку - первым скачивается образ python, что запускается на Alpine, и теперь он готов к запуску “CMD python ./index.py” во время запуска контейнера).
 
 ```
 docker build --tag my-python-app .
@@ -49,7 +49,7 @@ docker build --tag my-python-app .
 ![image](https://user-images.githubusercontent.com/10358317/113274060-8c0caa00-92dd-11eb-8ac3-285d1552c54d.png)
 
 
-- Run on terminal “docker run --name python-app -p 5000:5000 my-python-app” (run container from created image “my-python-app”, container name is “python-app”, host port 5000 binds to container port 5000).
+- Запустите в консоли “docker run --name python-app -p 5000:5000 my-python-app” (запускает контейнер из созданного образа “my-python-app”, имя контейнера - “python-app”, хостовой порт 5000 привязывается к порту контейнера 5000).
 
 ```
 docker run --name python-app -p 5000:5000 my-python-app
@@ -58,7 +58,7 @@ docker run --name python-app -p 5000:5000 my-python-app
 ![image](https://user-images.githubusercontent.com/10358317/113274079-92028b00-92dd-11eb-9902-da00b07602bb.png)
 
 
-- Open Browser (http://127.0.0.1:5000) to see the result. You created the first Docker image and run the first container. Congratulations! 😊 
+- Откройте браузер (http://127.0.0.1:5000) для просмотра результата. Вы создали первый Docker образ и запустили первый Docker контейнер. Поздравляю! 😊 
 
  ![image](https://user-images.githubusercontent.com/10358317/113274597-2967de00-92de-11eb-8a76-1b1adde27f3a.png)
 
