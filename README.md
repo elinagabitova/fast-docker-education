@@ -186,23 +186,23 @@ docker container pause [containerId or containerName]
 docker container unpause [containerId or containerName]
 ```
 
-#### Docker Container: Union File System  <a name="container-filesystem"></a>
-- Images are read only (R/O).
-- When containers are created, new read-write (R/W) thin layer is created.
+#### Docker контейнер: единая файловая система  <a name="container-filesystem"></a>
+- Образы в режиме только для чтения (readonly - R/O).
+- Когда контейнер создан, создается новый слой в режиме чтение/запись (R/W).
 
 ![image](https://user-images.githubusercontent.com/10358317/113183883-d8f86e00-9254-11eb-994b-30c17fe9429b.png) (Ref: docs.docker.com)
 
 ### Docker Volumes: Why Volumes needed?
-- Containers do not save the changes/logs when erased if there is not any binding to volume/mount. 
-- For persistence, volumes/mounts MUST be used. 
-- e.g. Creating a log file in the container. When the container is deleted, the log file also deleted with the container. So volumes/binding mounts MUST be used to provide persistence!
+- Контейнеры не хранят изменения/логов, когда если нет привязанных томов/директорий. 
+- Для постоянства, тома/привязанные директории ДОЛЖНЫ быть использованы. 
+- Создание лог-файла в контейнере. Когда удаляется контейнер, лог-файл тоже будет удален. Рекомендовано привязывать директории/ипользовать тома Docker!
 
 ![image](https://user-images.githubusercontent.com/10358317/113184189-2d035280-9255-11eb-9409-578ad1f2bd4b.png) (Ref: udemy-course:adan-zye-docker)
 
-### Docker Volumes/Bind Mounts  <a name="volume"></a>
+### Docker Тома (Volume)/Привязка директорий (Bind Mount)  <a name="volume"></a>
 
-- Volumes and binding mounts must be used for saving logs, output files, and input files.
-- When volumes bind to the directory in the container, this directory and volume are synchronized.
+- Volumes и binding mounts долдны быть использованы для сохранения логов, для подключения входщих и вывода файлов.
+- Когда том привязывается к директории в контейнере, эта директория и том синхронизированы.
 
 ```
 docker volume create [volumeName]
@@ -212,7 +212,7 @@ docker container run --name c1 -v test:/app alpine
 ```
 Goto: [App: Binding Volume to the Different Containers](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md)
 
-#### Bind Mount
+#### Привязка директории
 ```
 docker container run --name [containerName] -v [pathInHost]:[pathInContainer] [imageName]
 docker container run --name c1 -v C:\test:/app alpine
@@ -222,17 +222,17 @@ docker container run --name c1 -v C:\test:/app alpine
 Goto: [App: Binding Mount to Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerVolume.md#app_mount)
 Goto: [App: Transferring Content between Host PC and Docker Container](https://github.com/omerbsezer/Fast-Docker/blob/main/DockerTransferringContent.md)
 
-### Docker Network <a name="network"></a>
-- Docker containers work like VMs.
-- Every Docker container has network connections
-- Docker Network Drivers:
+### Сеть в Docker <a name="network"></a>
+- Docker контейнеры работают как виртуальные машины.
+- Каждый Docker контейнер может иметь сетевые соединения.
+- Docker сетевые драйверы:
     - None
     - Bridge
     - Host
     - Macvlan
     - Overlay
     
-#### Docker Network: Bridge
+#### Docker Network: мост (Bridge)
 - Default Network Driver: Bridge (--net bridge)
 
 ```
@@ -255,7 +255,7 @@ docker network create --driver=bridge --subnet=10.10.0.0/16 --ip-range=10.10.10.
 
 ![image](https://user-images.githubusercontent.com/10358317/113184949-1b6e7a80-9256-11eb-9a0c-fe5c62404a06.png) (Ref: Docker.com)
 
-#### Docker Network: Host
+#### Docker Network: Хост (Host)
 - Containers reach host network interfaces (--net host)
 
 ```
